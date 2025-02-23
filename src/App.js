@@ -47,11 +47,11 @@ function App() {
     }
 
     if (isWin) {
-      alert(`PLAYER ${currentPlayer} WON :)`);
+      alert(`PLAYER ${currentPlayer} WON 🎉`);
       restartGame();
     }
     else if (!isEmptyCell) {
-      alert(`IT'S A DRAW :(`);
+      alert(`IT'S A DRAW 🤝`);
       restartGame();
     }
     else {
@@ -96,9 +96,9 @@ function App() {
       <div class="d-flex justify-content-center align-items-center full-height">
         <div class="text-center p-5 border rounded shadow">
           <h2>TIC TAC TOE</h2>
-          <button onClick={() => handleNumberOfRowsChange("minus")} disabled={numberOfRows <= 3}>-</button>
+          <button onClick={() => handleNumberOfRowsChange("minus")} disabled={numberOfRows <= 3 || isGameStarted}>-</button>
           <input type='number' value={numberOfRows} style={{ width: '40px', marginLeft: '20px', marginRight: '20px' }}></input>
-          <button onClick={() => handleNumberOfRowsChange("plus")}>+</button>
+          <button onClick={() => handleNumberOfRowsChange("plus")} disabled={isGameStarted}>+</button>
           <p>---------------------------------------------------------</p>
           <p>Current Player : {currentPlayer}</p>
           <Container className='tic-tac-toe'>
